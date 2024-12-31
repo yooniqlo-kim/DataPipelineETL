@@ -22,7 +22,7 @@ services:
       hadoop_network:
         ipv4_address: 172.20.0.2
     user: hdfs
-    command: tail -f /dev/null  # HDFS 시작 및 컨테이너 유지
+    command: tail -f /dev/null 
 
   datanode01:
     image: hadoop_base
@@ -37,7 +37,7 @@ services:
       hadoop_network:
         ipv4_address: 172.20.0.3
     user: hdfs
-    command: tail -f /dev/null  # 컨테이너 유지
+    command: tail -f /dev/null 
 
   datanode02:
     image: hadoop_base
@@ -52,7 +52,7 @@ services:
       hadoop_network:
         ipv4_address: 172.20.0.4
     user: hdfs
-    command: tail -f /dev/null  # 컨테이너 유지
+    command: tail -f /dev/null 
 
 networks:
   hadoop_network:
