@@ -1,0 +1,63 @@
+services:
+  namenode:
+    image: hadoop_base
+    hostname: namenode
+    container_name: namenode
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+      - "9869:9869"
+      - "18080:18080"
+      - "8088:8088"
+      - "4040:4040"
+      - "8032:8032"
+      - "8030:8030"
+      - "8888:8888"
+      - "2201:22"
+    restart: always
+    depends_on:
+      - datanode01
+      - datanode02
+    networks:
+      hadoop_network:
+        ipv4_address: 172.20.0.2
+    user: hdfs
+    command: tail -f /dev/null  # HDFS 시작 및 컨테이너 유지
+
+  datanode01:
+    image: hadoop_base
+    hostname: datanode01
+    container_name: datanode01
+    ports:
+      - "9864:9864"
+      - "19866:9866"
+      - "2202:22"
+    restart: always
+    networks:
+      hadoop_network:
+        ipv4_address: 172.20.0.3
+    user: hdfs
+    command: tail -f /dev/null  # 컨테이너 유지
+
+  datanode02:
+    image: hadoop_base
+    hostname: datanode02
+    container_name: datanode02
+    ports:
+      - "9863:9863"
+      - "29866:9866"
+      - "2203:22"
+    restart: always
+    networks:
+      hadoop_network:
+        ipv4_address: 172.20.0.4
+    user: hdfs
+    command: tail -f /dev/null  # 컨테이너 유지
+
+networks:
+  hadoop_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
