@@ -41,9 +41,7 @@
 - 변환된 데이터를 HDFS에 저장합니다.
     - 원천데이터 : hdfs://data/raw_animal_data
     - 처리된 데이터 : hdfs://data/shelter_stats
-
----
-
+  
 ## 📌과정
 
 1. Docker Image 빌드
