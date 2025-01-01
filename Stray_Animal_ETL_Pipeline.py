@@ -40,11 +40,36 @@ hdfs_raw_path = "hdfs://namenode:9000/data/raw_animal_data"
 schema = StructType([
     StructField("SIGUN_CD", StringType(), True),
     StructField("SIGUN_NM", StringType(), True),
+    StructField("ABDM_IDNTFY_NO", StringType(), True),
+    StructField("THUMB_IMAGE_COURS", StringType(), True),
+    StructField("RECEPT_DE", StringType(), True),
+    StructField("DISCVRY_PLC_INFO", StringType(), True),
+    StructField("SPECIES_NM", StringType(), True),
+    StructField("COLOR_NM", StringType(), True),
+    StructField("AGE_INFO", StringType(), True),
+    StructField("BDWGH_INFO", StringType(), True),
+    StructField("PBLANC_IDNTFY_NO", StringType(), True),
     StructField("PBLANC_BEGIN_DE", StringType(), True),
     StructField("PBLANC_END_DE", StringType(), True),
+    StructField("IMAGE_COURS", StringType(), True),
+    StructField("STATE_NM", StringType(), True),
+    StructField("SEX_NM", StringType(), True),
+    StructField("NEUT_YN", StringType(), True),
+    StructField("SFETR_INFO", StringType(), True),
     StructField("SHTER_NM", StringType(), True),
-    StructField("THUMB_IMAGE_COURS", StringType(), True)
+    StructField("SHTER_TELNO", StringType(), True),
+    StructField("PROTECT_PLC", StringType(), True),
+    StructField("JURISD_INST_NM", StringType(), True),
+    StructField("CHRGPSN_NM", StringType(), True),
+    StructField("CHRGPSN_CONTCT_NO", StringType(), True),
+    StructField("PARTCLR_MATR", StringType(), True),
+    StructField("REFINE_LOTNO_ADDR", StringType(), True),
+    StructField("REFINE_ROADNM_ADDR", StringType(), True),
+    StructField("REFINE_ZIP_CD", StringType(), True),
+    StructField("REFINE_WGS84_LOGT", StringType(), True),
+    StructField("REFINE_WGS84_LAT", StringType(), True)
 ])
+
 raw_df = spark.createDataFrame(raw_data, schema=schema)
 
 # 2. 원천 데이터를 HDFS에 저장
