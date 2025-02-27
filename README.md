@@ -55,3 +55,19 @@
     - PySpark 를 사용하여 보호소별 유기동물 수 및 평균 보호기간 계산
 4. 데이터 적재
     - 변환된 데이터를 HDFS에 저장
+
+##  📌 트러블슈팅
+### 문제 배경
+
+- Pyspark 실행 중 작업이 실패했으며, `free -h` 를 통해 여유 메모리 부족 인식
+
+### 해결 방법
+- (1) Docker 컨테이너의 메모리 할당량 증가
+- (2) swap 메모리 조정
+- (3) Spark 작업의 메모리 조정
+    - Spark executor memory와 driver memory를 낮춰 Spark의 메모리 요청 감소
+- (4) Yarn의 maximum-allocation-mb 증가
+
+### 개선점
+- Spark의 메모리 최적화를 통해 작업 실패율 감소 및 실행 성능 향상
+- Yarn의 최대 메모리 할당을 증가시켜 클러스터 자원 활용도 개선
